@@ -40,7 +40,7 @@ Kopplar samman böcker och beställningar. Varje rad pekar på:
 
 Databasens ER-diagram illustrerar relationerna mellan tabellerna:
 
-
+![ER-Diagram](images/er-diagram.png)
 
 ---
 

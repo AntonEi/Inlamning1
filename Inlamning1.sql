@@ -26,7 +26,7 @@ CREATE TABLE Bocker (
 
 -- Skapa Bestallningar-tabellen 
 CREATE TABLE Bestallningar ( 
-	Ordernummer INT AUTO_INCREMENT PRIMARY KEY, -- Ett unikt id för varje ordernummer så att man vet vilken bok det är.
+	Ordernummer INT AUTO_INCREMENT PRIMARY KEY, -- Ett unikt id för varje ordernummer så att man vet vilken betälling det är.
     KundID INT NOT NULL,
     Totalbelopp DECIMAL(10,2) NOT NULL CHECK (Totalbelopp > 0), -- "CHECK" kollar så att värdet är större än 0.
     Datum TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -36,11 +36,11 @@ CREATE TABLE Bestallningar (
 
 -- Skapa Orderrader-tabellen 
 CREATE TABLE Orderrader (   
-    OrderradID INT AUTO_INCREMENT PRIMARY KEY, -- Ett unikt id för varje orderrad så att man vet vilken bok det är.
+    OrderradID INT AUTO_INCREMENT PRIMARY KEY, -- Ett unikt id för varje orderrad så att man vet vilken order det är.
     ISBN BIGINT NOT NULL,
     Ordernummer INT NOT NULL,
     Antal INT NOT NULL CHECK (Antal > 0), 
-    FOREIGN KEY (Ordernummer) REFERENCES Bestallningar(Ordernummer), -- Lånar primärnyckel från ordernummer i Bestallningar-tabellen.
+    FOREIGN KEY (Ordernummer) REFERENCES Bestallningar(Ordernummer), -- hämtar primärnyckel från ordernummer i Bestallningar-tabellen.
     FOREIGN KEY (ISBN) REFERENCES Bocker(ISBN) -- Hämtar primärnyckel från ISBN i Böcker-tabellen.
 );
 
